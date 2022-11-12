@@ -64,6 +64,11 @@ int main(int argc, char **argv) {
   }
   //load the image and give us our input and output pointers
   preProcess(&inputVals, &inputPos, &outputVals, &outputPos, numElems, input_file, template_file);
+	
+  printf("\n");
+  for(int i=0; i<numElems; i++)
+  printf("%d, ", inputVals[i]);
+  printf("\n");
 
   GpuTimer timer;
   timer.Start();
@@ -84,6 +89,11 @@ int main(int argc, char **argv) {
 
   //check results and output the red-eye corrected image
   postProcess(outputVals, outputPos, numElems, output_file);
+	
+  printf("\n");
+  for(int i=0; i<numElems; i++)
+  printf("%d, ", outputVals[i]);
+  printf("\n");
 
   // check code moved from HW4.cu
   /****************************************************************************
